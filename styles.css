@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+
+:root {
+    --bg-color: #0f1f18;
+    /* Deep Forest Green */
+    --card-bg: #152920;
+    --text-color: #e0e7e1;
+    --accent-color: #c9a959;
+    /* Muted Gold */
+    --spacing: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Lato', sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+    color: #f0f4f1;
+}
+
+/* Scroll Animations Base Class */
+.fade-in {
+    /* Kept for potential other uses, but sections handle their own animation now */
+}
+
+/* Hero Section */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a2f23 0%, #0f1f18 100%);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background decoration */
+header::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=');
+    opacity: 0.3;
+    animation: rotateBackground 100s linear infinite;
+}
+
+@keyframes rotateBackground {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+header h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    z-index: 1;
+    color: var(--accent-color);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: heroEnter 1.5s ease-out forwards 0.5s;
+}
+
+header p {
+    font-size: 1.4rem;
+    font-weight: 300;
+    max-width: 700px;
+    z-index: 1;
+    opacity: 0;
+    animation: heroEnter 1.5s ease-out forwards 1s;
+}
+
+@keyframes heroEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    font-size: 2rem;
+    color: var(--accent-color);
+    animation: float 2.5s ease-in-out infinite;
+    z-index: 1;
+    cursor: pointer;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Main Content with Zigzag Layout */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing) 20px;
+    overflow-x: hidden;
+}
+
+.story-section {
+    margin-bottom: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    position: relative;
+    opacity: 0;
+    /* Initially invisible */
+    transition: opacity 0.5s ease;
+}
+
+/* When the section becomes visible (added by JS) */
+.story-section.visible {
+    opacity: 1;
+}
+
+/* Decorative line */
+.story-section::after {
+    content: '';
+    position: absolute;
+    bottom: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--accent-color), transparent);
+    opacity: 0.3;
+}
+
+.story-section:last-child::after {
+    display: none;
+}
+
+/* --- ZIGZAG LAYOUT LOGIC --- */
+/* Even sections: Image Right, Text Left */
+.story-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* --- ANIMATION LOGIC --- */
+.story-media,
+.story-text {
+    flex: 1;
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.story-text {
+    transition-delay: 0.2s;
+    /* Text lags slightly for effect */
+}
+
+/* Odd Sections (Normal): Image slides from Left, Text from Right */
+.story-section:nth-child(odd) .story-media {
+    transform: translateX(-50px);
+}
+
+.story-section:nth-child(odd) .story-text {
+    transform: translateX(50px);
+}
+
+/* Even Sections (Reversed): Image slides from Right, Text from Left */
+.story-section:nth-child(even) .story-media {
+    transform: translateX(50px);
+}
+
+.story-section:nth-child(even) .story-text {
+    transform: translateX(-50px);
+}
+
+/* Activator */
+.story-section.visible .story-media,
+.story-section.visible .story-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- STYLING --- */
+.story-media {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.story-media img,
+.story-media video {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    background: #000;
+    display: block;
+    transition: transform 0.7s ease;
+}
+
+.story-media:hover img {
+    transform: scale(1.03);
+}
+
+.story-text {
+    max-width: 500px;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 2px;
+    border-top: 3px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.story-text h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.story-text p {
+    font-size: 1.15rem;
+    color: #ccc;
+    line-height: 1.9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #0a1410;
+    color: #666;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Responsive: Revert to Stack on Mobile */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 3rem;
+    }
+
+    /* Disable Zigzag on mobile */
+    .story-section,
+    .story-section:nth-child(even) {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 80px;
+    }
+
+    .story-media,
+    .story-text {
+        width: 100%;
+        max-width: 100%;
+        transform: translateY(30px) !important;
+        /* Simple fade up on mobile */
+    }
+
+    .story-section.visible .story-media,
+    .story-section.visible .story-text {
+        transform: translateY(0) !important;
+    }
+
+    .story-text {
+        text-align: center;
+        padding: 30px 20px;
+    }
+}

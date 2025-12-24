@@ -4,95 +4,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Ti ❤️</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Diario de Viaje a Mérida</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Contenedor para animaciones de fondo -->
-    <div id="hearts-container"></div>
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="photo-placeholder">
-                <span class="flower-icon">🌹</span>
+    <!-- PORTADA (HERO SECTION) -->
+    <header>
+        <h1>Diario de Viaje a Mérida</h1>
+
+        <!-- CAMBIAR TEXTO AQUÍ: Subtítulo de la portada -->
+        <p>un muy breve resumen de lo que e hecho hasta ahora.</p>
+
+
+        <!-- Flecha para bajar -->
+        <div class="scroll-hint">&#8595;</div>
+    </header>
+
+    <main>
+
+        <!-- SECCION 1 (Foto: 1.jpg) -->
+        <section class="story-section fade-in">
+            <div class="story-media">
+                <img src="fotos/1.jpg" alt="Foto 1">
             </div>
-
-            <h1>¡Hola, Mi Amor!</h1>
-
-            <div class="counter-container">
-                <div class="counter-box">
-                    <span id="days" class="counter-number">0</span>
-                    <span class="counter-label">Días</span>
-                </div>
-                <div class="counter-box">
-                    <span id="hours" class="counter-number">0</span>
-                    <span class="counter-label">Horas</span>
-                </div>
-                <div class="counter-box">
-                    <span id="minutes" class="counter-number">0</span>
-                    <span class="counter-label">Min</span>
-                </div>
-                <div class="counter-box">
-                    <span id="seconds" class="counter-number">0</span>
-                    <span class="counter-label">Seg</span>
-                </div>
-            </div>
-
-            <p class="subtitle">Juntos desde el 17 de Junio ❤️</p>
-
-            <div class="love-letter">
-                <p>
-                    Cada segundo cuenta y cada momento contigo es un tesoro.
-                    Aquí está un pedacito de nuestra historia.
+            <div class="story-text">
+                <!-- CAMBIAR TEXTO AQUÍ: Título de la historia 1 -->
+                <h3>Nuestra LLegada</h3>
+                <!-- CAMBIAR TEXTO AQUÍ: Párrafo de la historia 1 -->
+                <p>Aqui un poco cansado del viaje pero ya en este punto la emocion de recorer estas tierras
+                    despues de un año era inevitable al igual que el frio que se hacia sentir.
                 </p>
             </div>
-        </div>
+        </section>
 
-        <!-- Línea de Tiempo (Historia) -->
-        <div class="timeline-section">
-
-            <!-- Evento 1 -->
-            <div class="timeline-item">
-                <span class="timeline-date">17 de Junio - 12:30 PM</span>
-                <h3>El Comienzo ✨</h3>
-                <p>El momento exacto en que nuestros caminos se cruzaron. ¡Qué suerte la mía!</p>
+        <!-- SECCION 2 (Video: 2.mp4) -->
+        <section class="story-section fade-in">
+            <div class="story-media">
+                <!-- Video con controles activados -->
+                <video controls style="max-height: 80vh;">
+                    <source src="fotos/2.mp4" type="video/mp4">
+                    Tu navegador no soporta videos.
+                </video>
             </div>
+            <div class="story-text">
+                <!-- CAMBIAR TEXTO AQUÍ: Título del video -->
+                <h3>La Belleza del Paramo</h3>
+                <!-- CAMBIAR TEXTO AQUÍ: Párrafo del video -->
+                <p> En este punto se me venian muchos recuerdos que tengo en esto
+                    caminos y afortunadamente no tenia ganas de vomitar jajajaja,
+                    siempre es hermoso recorrer estos caminos y mas con este clima.
 
-            <!-- Evento 2 -->
-            <div class="timeline-item">
-                <span class="timeline-date">20 de Junio</span>
-                <h3>Nuestra Primera Cita 🌹</h3>
-                <p>Un día inolvidable...</p>
-                <div class="timeline-photo">
-                    <!-- Cambia esto por <img src="cita.jpg"> -->
-                    <span>FOTO AQUÍ 📸</span>
-                </div>
+                </p>
             </div>
+        </section>
 
-            <!-- Evento 3 - Agrega más si quieres -->
-            <div class="timeline-item">
-                <span class="timeline-date">Y la historia continúa...</span>
-                <h3>Cada día más enamorado 💑</h3>
-                <p>Gracias por todos los momentos bonitos que construimos juntos.</p>
-                <div class="timeline-photo">
-                    <!-- Agrega otra foto aquí -->
-                    <span>FOTO AQUÍ 📸</span>
-                </div>
+        <!-- SECCION 3 (Foto: 3.jpg) -->
+        <section class="story-section fade-in">
+            <div class="story-media">
+                <img src="fotos/3.jpg" alt="Foto 3">
             </div>
+            <div class="story-text">
+                <!-- CAMBIAR TEXTO AQUÍ: Título de la historia 3 -->
+                <h3>Vine a Dormir</h3>
+                <!-- CAMBIAR TEXTO AQUÍ: Párrafo de la historia 3 -->
+                <p> yo al segundo dia madrugando para trotar con el frio de la mañana(me acoste a las 8 asi que dormi
+                    bastante)
+                    que recorre todo tu cuerpo, siempre en un reto salir a trotar
+                    pero es muy satifactorio realizar cosas dificiles.
 
-        </div>
-
-        <div class="glass-card" style="margin-top: 20px;">
-            <button id="reveal-btn" class="btn-reveal">¡Una última sorpresa! 🎁</button>
-
-            <div id="hidden-message" class="hidden-message">
-                <h3>Te Amo ❤️</h3>
-                <p>Eres mi persona favorita en el mundo.</p>
-                <!-- Aquí puedes añadir una foto tuya o de ambos si editas el código -->
+                </p>
             </div>
-        </div>
-    </div>
+        </section>
+
+        <!-- SECCION 4 (Foto: 4.jpg) -->
+        <section class="story-section fade-in">
+            <div class="story-media">
+                <img src="fotos/4.jpg" alt="Foto 4">
+            </div>
+            <div class="story-text">
+                <!-- CAMBIAR TEXTO AQUÍ: Título de la historia 4 -->
+                <h3>Cuanto extrañaba mi Casa</h3>
+                <!-- CAMBIAR TEXTO AQUÍ: Párrafo de la historia 4 -->
+                <p>realmante no sabia cuanto extrañaba mi casa la verdad, antes estaba aqui y era normal
+                    pero ahora me dio cuenta de lo mucho que me hace falta, espero que nieve
+                    para que veas como se ve la montaña cuvierta de nieve.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCION 5 (Foto: 5.jpg) -->
+        <section class="story-section fade-in">
+            <div class="story-media">
+                <img src="fotos/5.jpg" alt="Foto 5">
+            </div>
+            <div class="story-text">
+                <!-- CAMBIAR TEXTO AQUÍ: Título de la historia 5 -->
+                <h3>Te Debo Esta Cita</h3>
+                <!-- CAMBIAR TEXTO AQUÍ: Párrafo de la historia 5 -->
+                <p>aunque tenia muy buena compañia me imaginaba como seria el estar
+                    contigo, tu ayudandome a escoger mis outfits y yo los tuyo, de seguro
+                    seria genial como la mayoria de cosas a tu lado, mi hermano te manda saludos.
+
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCION 6 (Foto: 6.jpg) -->
+        <section class="story-section fade-in">
+            <div class="story-media">
+                <img src="fotos/6.jpg" alt="Foto 6">
+            </div>
+            <div class="story-text">
+                <!-- CAMBIAR TEXTO AQUÍ: Título de la historia 6 -->
+                <h3>TE EXTRAÑOOO</h3>
+                <!-- CAMBIAR TEXTO AQUÍ: Párrafo de la historia 6 -->
+                <p>me corte el pelo, me atracaron jajajaj, me quedo muy corto pero no me veo tan feo.
+                    Es loco ROSA pero desde que estoy aqui, me la paso imaginando como seria el estar contigo haciendo
+                    todo lo que hasta ahora
+                    e hecho , estoy seguro de que lo disfrutaremos como cada momento, estoy seguro que me
+                    extrañas asi como yo a ti,
+                    por cierto ya casi toda mi familia sabe de tu existencia(pronto la conoceran) espero que te guste lo
+                    que
+                    hice con mucho cariño,
+                    TE QUIERO ROSI.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>R.R. Mérida, 2025.</p>
+        <br>
+        <a href="https://wa.me/584149788617?text=Ya%20vi%20tu%20diario%20%E2%9C%A8%F0%9F%98%8D" target="_blank"
+            style="text-decoration: none; color: #25D366; font-weight: bold; font-size: 1.1rem; border: 1px solid #25D366; padding: 10px 20px; border-radius: 20px; transition: all 0.3s; display: inline-block; margin-top: 10px;">
+            Envíame un mensaje cuando lo veas 💚
+        </a>
+    </footer>
 
     <script src="script.js"></script>
 </body>
